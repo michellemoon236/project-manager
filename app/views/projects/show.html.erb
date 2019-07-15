@@ -1,0 +1,23 @@
+<%= @project.name %>
+<ul> 
+<p>Teammates on this project</p>
+<% @project.users.each do |user| %>
+<li><%= user.name %></li>
+<% end %>
+<p>Tasks To Do</p>
+<% @project.tasks.select { |task| task.complete == false }.each do |task| %>
+<li><%= task.content %>
+
+<%= form_for task, :url => task_complete_path(task), :method => 'get' do |f| %>
+    <%= f.hidden_field :id %>
+    <%= f.submit value='Completed' %>
+<% end %></li>
+
+<% end %><br>
+
+<p>Tasks Completed</p>
+<% @project.tasks.select { |task| task.complete == true }.each do |task| %>
+  <li><%= task.content %>
+<% end %><br><br>
+
+<%= link_to "Add More Tasks", new_project_task_path(@project) %>
