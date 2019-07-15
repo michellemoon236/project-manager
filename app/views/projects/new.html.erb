@@ -1,0 +1,17 @@
+<h1>New Project </h1>
+
+<%= form_for @project do |f| %>
+   <%= f.label :name %>
+   <%= f.text_field :name %><br>
+    <%= f.label :description %>
+   <%= f.text_area :description %>
+   <p>Team members on the project</p>
+   <%= f.collection_check_boxes :user_ids, User.all, :id, :name %>
+   <p>Tasks</p>
+   <%= f.fields_for :tasks do |task| %>
+    <li><%= task.text_field :content %>
+    </li><br>
+    <% end %>
+
+<%= f.submit %>
+<% end %><br><br>
