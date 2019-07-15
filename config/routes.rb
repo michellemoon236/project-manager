@@ -20,4 +20,9 @@ Rails.application.routes.draw do
     get 'signup', to: 'devise/registrations#new'
   end
 
+  resources :projects do 
+    resources :tasks
+  end
+
+  get 'tasks/:id/complete', to: "tasks#task_complete", as: 'task_complete'
 end
