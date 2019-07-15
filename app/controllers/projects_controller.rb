@@ -1,4 +1,8 @@
 class ProjectsController < ApplicationController
+  def index
+    @projects = Project.all.select { |project| project.users.include?(current_user) }
+  end
+  
   def new
     @project = Project.new 
     8.times do 
@@ -18,7 +22,7 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
   end
-  
+
   private
 
   def project_params
