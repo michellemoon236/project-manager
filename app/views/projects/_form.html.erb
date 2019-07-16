@@ -1,6 +1,8 @@
 <%= form_for @project do |f| %>
    <%= f.label :name %>
    <%= f.text_field :name %>
+   <%= f.label :description %>
+   <%= f.text_area :description %>
    <p>Team members on the project</p>
    <%= f.collection_check_boxes :user_ids, User.all, :id, :name %>
    <p>Tasks</p>
