@@ -6,7 +6,7 @@
 <li><%= user.name %></li>
 <% end %>
 <p>Tasks To Do</p>
-<% @project.tasks.select { |task| task.complete == false }.each do |task| %>
+<% @project.tasks.not_completed.each do |task| %>
 <li><%= link_to task.content, project_task_path(@project, task) %>
 
 <%= form_for task, :url => task_complete_path(task), :method => 'get' do |f| %>
@@ -16,10 +16,12 @@
 
 <% end %><br>
 
+<% if @project.tasks.completed.empty? == false %>
 <p>Tasks Completed</p>
-<% @project.tasks.select { |task| task.complete == true }.each do |task| %>
+<% @project.tasks.completed.each do |task| %>
   <li><%= link_to task.content, project_task_path(@project, task) %></li>
 <% end %><br><br>
+<% end %>
 
 <%= link_to "Add Another Task", new_project_task_path(@project) %>
 <p><%= link_to "Edit Project", edit_project_path(@project) %></p>
