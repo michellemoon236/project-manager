@@ -10,6 +10,9 @@ class User < ApplicationRecord
   validates :name, :email, uniqueness: true
   validates :name, length: {minimum: 3}
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP } 
+  validate :is_title_case 
+ 
+  before_validation :make_title_case
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -21,4 +24,16 @@ class User < ApplicationRecord
     end
   end
   
+
+  private
+ 
+  def is_title_case
+    if name.split.any?{|w|w[0].upcase != w[0]}
+      errors.add(:name, "Name must be in title case")
+    end
+  end
+ 
+  def make_title_case
+    self.name = self.name.titlecase
+  end 
 end
