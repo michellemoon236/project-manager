@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2019_07_15_212018) do
   create_table "user_projects", force: :cascade do |t|
     t.integer "user_id"
     t.integer "project_id"
+    t.boolean "project_creator", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
