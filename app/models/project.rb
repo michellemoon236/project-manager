@@ -5,7 +5,8 @@ class Project < ApplicationRecord
   accepts_nested_attributes_for :tasks, reject_if: proc { |attributes| attributes['content'].blank? }
 
   validates :name, :description, presence: true
-  validates :user_ids, presence: { message: "At least one team member must be selected" }
+  validates :user_ids, presence: { message: ": At least one team member must be selected" }
+
 end
 
 
