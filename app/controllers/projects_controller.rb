@@ -1,7 +1,6 @@
 class ProjectsController < ApplicationController
   def index
     @projects = Project.all.select { |project| project.users.include?(current_user) }
-    binding.pry
   end
   
   def new
