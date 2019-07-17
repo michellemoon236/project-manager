@@ -1,4 +1,4 @@
 <p><%= @task.content %></p>
 <%= link_to "Edit Task", edit_project_task_path(@task.project, @task) %>
 
-<p>Delete Task</p>
+<%= link_to "Delete Task", @task, method: :delete %>

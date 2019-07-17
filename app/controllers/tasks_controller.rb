@@ -17,7 +17,6 @@ class TasksController < ApplicationController
   end
 
   def show
-    binding.pry
     @task = Task.find(params[:id])
   end
 
@@ -33,6 +32,12 @@ class TasksController < ApplicationController
     else
       render :edit 
     end
+  end
+
+  def destroy
+    @task = Task.find(params[:id])
+    @task.destroy
+    redirect_to @task.project
   end
 
   private
