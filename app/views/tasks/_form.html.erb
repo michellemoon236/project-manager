@@ -1,11 +1,13 @@
 <% if flash[:error] %>
+<div class="error_explanation">
+<strong>Errors:</strong>
 <% flash[:error].each do |e| %>
 <li><%= e %></li>
 <% end %>
 <% binding.pry %>
 <% flash.clear %>
 <% end %>
-<% binding.pry %>
+</div>
 
 <%= form_for @task do |f| %>
   <%= f.hidden_field :project_id %>
