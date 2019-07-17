@@ -21,6 +21,6 @@
   <li><%= link_to task.content, project_task_path(@project, task) %></li>
 <% end %><br><br>
 
-<p><%= link_to "Edit Project", edit_project_path(@project) %></p>
-
 <%= link_to "Add Another Task", new_project_task_path(@project) %>
+<p><%= link_to "Edit Project", edit_project_path(@project) %></p>
+<%= link_to "Delete Project", @project, method: :delete %>
