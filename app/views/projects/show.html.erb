@@ -7,7 +7,7 @@
 <% end %>
 <p>Tasks To Do</p>
 <% @project.tasks.select { |task| task.complete == false }.each do |task| %>
-<li><%= task.content %>
+<li><%= link_to task.content, project_task_path(@project, task) %>
 
 <%= form_for task, :url => task_complete_path(task), :method => 'get' do |f| %>
     <%= f.hidden_field :id %>
@@ -18,7 +18,7 @@
 
 <p>Tasks Completed</p>
 <% @project.tasks.select { |task| task.complete == true }.each do |task| %>
-  <li><%= task.content %>
+  <li><%= link_to task.content, project_task_path(@project, task) %></li>
 <% end %><br><br>
 
 <p><%= link_to "Edit Project", edit_project_path(@project) %></p>

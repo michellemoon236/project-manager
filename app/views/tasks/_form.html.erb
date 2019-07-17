@@ -1,0 +1,7 @@
+<%= form_for @task do |f| %>
+  <%= f.hidden_field :project_id %>
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+
+  <%= f.submit %>
+<% end %>
