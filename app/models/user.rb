@@ -6,6 +6,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable, :omniauthable
   
+  validates :name, :email, :password, presence: true
+  validates :name, :email, uniqueness: true
+  validates :name, length: {minimum: 3}
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP } 
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.provider = auth.provider
@@ -15,4 +20,5 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0,20]
     end
   end
+  
 end
