@@ -10,8 +10,8 @@ class TasksController < ApplicationController
   end
 
   def task_complete
-    @task = Task.find(params[:task][:id])
-    @task.complete = true
+    params[:task] ? @task = Task.find(params[:task][:id]) : @task = Task.find(params[:id])
+    @task.complete == false ? @task.complete = true : @task.complete = false
     @task.save
     redirect_to project_path(id: @task.project_id)
   end
