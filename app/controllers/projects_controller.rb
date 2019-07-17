@@ -19,6 +19,7 @@ class ProjectsController < ApplicationController
       binding.pry
       redirect_to project_path(@project)
     else
+      flash[:error] = @project.errors.full_messages
       render :new
     end
   end

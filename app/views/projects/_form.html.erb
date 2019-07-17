@@ -1,3 +1,12 @@
+<% if flash[:error] %>
+<% flash[:error].each do |e| %>
+<li><%= e %></li>
+<% end %>
+<% binding.pry %>
+<% flash.clear %>
+<% end %>
+<% binding.pry %>
+
 <%= form_for @project do |f| %>
    <%= f.label :name %><br>
    <%= f.text_field :name, size: '38' %><br><br>
