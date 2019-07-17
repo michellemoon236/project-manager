@@ -5,9 +5,15 @@ class TasksController < ApplicationController
   end
 
   def create 
-    @task = Task.create(task_params)
-    redirect_to project_path(@task.project_id)
+    @task = Task.new(task_params)
+    if @task.save
+      redirect_to project_path(@task.project_id)
+    else
+      flash[:error] = @task.errors.full_messages
+      render :new
+    end
   end
+
 
   def task_complete
     params[:task] ? @task = Task.find(params[:task][:id]) : @task = Task.find(params[:id])
@@ -30,6 +36,7 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to @task.project
     else
+      flash[:error] = @task.errors.full_messages
       render :edit 
     end
   end
