@@ -3,7 +3,7 @@
 <ul> 
 <p>Teammates on this project</p>
 <% @project.users.each do |user| %>
-<li><%= user.name %></li>
+<li><%= user.name %> <%= '(project creator)' if UserProject.find_by(user_id: user.id, project_id: @project.id).project_creator == true %>  </li>
 <% end %>
 <p>Tasks To Do</p>
 <% @project.tasks.not_completed.each do |task| %>

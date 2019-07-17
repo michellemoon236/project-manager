@@ -15,8 +15,8 @@ class ProjectsController < ApplicationController
     @project.user_projects.each do |user_project|
       user_project.project_creator = true if user_project.user_id == current_user.id
     end
-    
     if @project.save
+      binding.pry
       redirect_to project_path(@project)
     else
       render :new
