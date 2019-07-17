@@ -1,4 +1,8 @@
-<p><%= @task.content %></p>
+<p>Task: <%= @task.content %></p>
+<p>For Project: <%= @task.project.name %></p>
+<p><%= @task.complete == true ? "Status: completed" : "Status: not completed" %><p>
+
 <%= link_to "Edit Task", edit_project_task_path(@task.project, @task) %>
+ 
 
 <%= link_to "Delete Task", @task, method: :delete %>
