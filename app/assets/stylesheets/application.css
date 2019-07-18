@@ -16,7 +16,7 @@
 
  @import url('https://fonts.googleapis.com/css?family=Hind+Siliguri&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Arvo&display=swap');
-
+@import url('https://fonts.googleapis.com/css?family=Literata&display=swap');
 
 @media screen {
   /* --- Reset Styles --- */
@@ -51,7 +51,7 @@
   }
 
   h1, h2, h3 {
-    font-family: 'Arvo', serif; 
+    font-family: 'Literata', serif;
   }
 
   h1 {
@@ -114,4 +114,27 @@
     margin-bottom: 10px;
   }
 
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333
+  }
+
+  nav li {
+    float: left;
+  }
+
+  nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  nav {
+    margin-bottom: 20px;
+  }
 }
