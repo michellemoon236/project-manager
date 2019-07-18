@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
-
+  before_action :require_login
+  
   def new
     @task = Task.new(project_id: params[:project_id])
   end
@@ -52,4 +53,9 @@ class TasksController < ApplicationController
   def task_params
     params.require(:task).permit(:content, :project_id, :id)
   end
+
+  def require_login
+    return head(:forbidden) unless user_signed_in?
+  end
+
 end

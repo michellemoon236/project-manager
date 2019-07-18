@@ -1,4 +1,6 @@
 class ProjectsController < ApplicationController
+  before_action :require_login
+
   def index
     @projects = Project.all.select { |project| project.users.include?(current_user) }
   end
@@ -58,6 +60,10 @@ class ProjectsController < ApplicationController
       tasks_attributes:[:content, :complete, :project_id, :id],
       user_ids:[]
     )
+  end
+
+  def require_login
+    return head(:forbidden) unless user_signed_in?
   end
 
 end
