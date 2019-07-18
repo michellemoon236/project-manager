@@ -15,7 +15,7 @@
   </tr>
 </table>
 
-<table>
+<table id="first_table">
    <tr>
     <th colspan="2">Tasks To Do</th>
   </tr>
@@ -26,9 +26,9 @@
       <%= f.hidden_field :id %>
       <%= f.submit value='Completed' %>
     <% end %></td>
-  <% end %><br>
+  <% end %>
   </tr>
-</table><br>
+</table>
 
 <% if @project.tasks.completed.empty? == false %>
   <table>  
@@ -43,6 +43,7 @@
   </table><br><br>
 <% end %>
 
+<br><br>
 <%= link_to "Add Another Task", new_project_task_path(@project) %> | 
 <%= link_to "Edit Project", edit_project_path(@project) %> | 
 <%= link_to "Delete Project", @project, method: :delete %>

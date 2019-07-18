@@ -14,16 +14,13 @@
  *= require_self
  */
 
- @import url('https://fonts.googleapis.com/css?family=Hind+Siliguri&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Arvo&display=swap');
 
-@import url('https://fonts.googleapis.com/css?family=Athiti&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Arvo&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Literata&display=swap');
 
 @media screen {
   /* --- Reset Styles --- */
   * {
-    /* list-style: none; */
     margin: 0;
     padding: 0;
   }
@@ -82,7 +79,8 @@
   }
 
   p {
-    margin-bottom: 18px;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 
   .main {
@@ -95,17 +93,21 @@
   }
 
   .field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
+    padding: 2px;
+    background-color: red;
+    display: table;
   }
 
   .error_explanation {
-  width: 450px;
-  border: 2px solid red;
-  padding: 7px 7px 0;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
+    width: 450px;
+    border: 2px solid red;
+    padding: 7px 7px 0;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+  }
+  
+  table {
+    margin-bottom: 12px;
   }
 
   th {
@@ -139,4 +141,6 @@
   nav {
     margin-bottom: 20px;
   }
+
+
 }
