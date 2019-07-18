@@ -11,10 +11,12 @@
       <strong>Status:</strong>
       <%= @task.complete == true ? "completed" : "not completed" %>
     </td>
-    <td><%= form_for @task, :url => task_complete_path(@task), :method => 'get' do |f| %>
+    <td>
+      <%= form_for @task, :url => task_complete_path(@task), :method => 'get' do |f| %>
       <%= f.hidden_field :id %>
       <%= f.submit value='Change Status' %>
-    <% end %></td>
+      <% end %>
+    </td>
   </tr>
 </table><br><br>
 

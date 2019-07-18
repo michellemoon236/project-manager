@@ -10,9 +10,8 @@
 
 <%= form_for @task do |f| %>
   <%= f.hidden_field :project_id %>
-  <%= f.label :content %>
-  <%= f.text_field :content %>
+  <%= f.text_field :content, size: '35' %><br><br>
   <%= f.submit %>
-<% end %><br>
+<% end %><br><br>
 
 <%= link_to "Go Back to Project", project_path(@task.project) %>
