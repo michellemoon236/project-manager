@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ProjectManager</title>
+    <title>ProjectAlign</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,7 +10,10 @@
   </head>
 
   <body>
-    <%= render 'layouts/nav' %>
-    <%= yield %>
+    <div class="wrapper">
+      <%= render 'layouts/nav' %>
+      <%= yield %>
+      
+    </div>
   </body>
 </html>
