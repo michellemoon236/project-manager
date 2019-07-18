@@ -1,6 +1,5 @@
-
-<p>Project: <%= link_to @task.project.name, project_path(@task.project) %></p>
-<p>Task: <%= @task.content %></p>
+<h2>Task for Project <%= @task.project.name %></h2>
+<p>Content: <%= @task.content %></p>
 <table>
   <tr>
     <td><%= @task.complete == true ? "Status: completed" : "Status: not completed" %></td>
