@@ -9,10 +9,10 @@ Rails.application.routes.draw do
   end
 
   resources :projects do 
-    resources :tasks
+    resources :tasks, except: [:index, :create, :update, :destroy]
   end
 
-  resources :tasks
+  resources :tasks, only: [:create, :update, :destroy]
   
   get 'tasks/:id/complete', to: "tasks#task_complete", as: 'task_complete'
 end
