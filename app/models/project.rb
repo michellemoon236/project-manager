@@ -6,13 +6,19 @@ class Project < ApplicationRecord
 
   validates :name, :description, presence: true
   validates :user_ids, presence: { message: ": At least one team member must be selected" }
+  validate :is_title_case 
 
+  before_validation :make_title_case
+
+  private
+ 
+  def is_title_case
+    if name.split.any?{|w|w[0].upcase != w[0]}
+      errors.add(:name, " must be in title case")
+    end
+  end
+ 
+  def make_title_case
+    self.name = self.name.titlecase
+  end
 end
-
-
-# params.require(:project).permit(
-#   :name,
-#   :description,
-#   tasks_attributes:[:content, :complete, :project_id, :id],
-#   user_ids:[]
-# )

@@ -6,10 +6,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable, :omniauthable
   
-  validates :name, :email, :password, presence: true
+  validates :name, presence: true
   validates :name, :email, uniqueness: true
   validates :name, length: {minimum: 3}
-  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP } 
   validate :is_title_case 
  
   before_validation :make_title_case
