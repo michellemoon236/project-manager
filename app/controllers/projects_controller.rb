@@ -13,18 +13,13 @@ class ProjectsController < ApplicationController
   end
 
   def create 
-    binding.pry
     @project = Project.new(project_params)
-    binding.pry
     @project.user_projects.each do |user_project|
       user_project.project_creator = true if user_project.user_id == current_user.id
     end
-    binding.pry
     if @project.save
-      binding.pry
       redirect_to project_path(@project)
     else
-      binding.pry
       flash[:error] = @project.errors.full_messages
       render :new
     end
