@@ -1,11 +1,15 @@
 
-<p>For Project: <%= link_to @task.project.name, project_path(@task.project) %></p>
+<p>Project: <%= link_to @task.project.name, project_path(@task.project) %></p>
 <p>Task: <%= @task.content %></p>
-<p><%= @task.complete == true ? "Status: completed" : "Status: not completed" %>
-<%= form_for @task, :url => task_complete_path(@task), :method => 'get' do |f| %>
-    <%= f.hidden_field :id %>
-    <%= f.submit value='Completed' %>
-<% end %><p>
+<table>
+  <tr>
+    <td><%= @task.complete == true ? "Status: completed" : "Status: not completed" %></td>
+    <td><%= form_for @task, :url => task_complete_path(@task), :method => 'get' do |f| %>
+      <%= f.hidden_field :id %>
+      <%= f.submit value='Change Status' %>
+    <% end %></td>
+  </tr>
+</table><br>
 
 <%= link_to "Edit Task", edit_project_task_path(@task.project, @task) %> |
 
