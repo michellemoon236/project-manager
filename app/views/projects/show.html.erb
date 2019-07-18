@@ -1,13 +1,13 @@
 <h2>Project: <%= @project.name %></h2>
 <p>Description: <%= @project.description %></p>
 <ul> 
-<p>Teammates on this project</p>
-<% @project.users.each do |user| %>
-<li><%= user.name %> <%= '(project creator)' if UserProject.find_by(user_id: user.id, project_id: @project.id).project_creator == true %>  </li>
-<% end %>
-<p>Tasks To Do</p>
-<% @project.tasks.not_completed.each do |task| %>
-<li><%= link_to task.content, project_task_path(@project, task) %>
+  <p>Teammates on this project</p>
+  <% @project.users.each do |user| %>
+    <li><%= user.name %> <%= '(project creator)' if UserProject.find_by(user_id: user.id, project_id: @project.id).project_creator == true %></li>
+  <% end %>
+  <p>Tasks To Do</p>
+  <% @project.tasks.not_completed.each do |task| %>
+    <li><%= link_to task.content, project_task_path(@project, task) %>
 
 <%= form_for task, :url => task_complete_path(task), :method => 'get' do |f| %>
     <%= f.hidden_field :id %>

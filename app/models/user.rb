@@ -23,7 +23,6 @@ class User < ApplicationRecord
     end
   end
   
-
   private
  
   def is_title_case
