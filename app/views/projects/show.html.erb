@@ -1,26 +1,46 @@
 <h2>Project: <%= @project.name %></h2>
-<p>Description: <%= @project.description %></p>
-<ul> 
-  <p>Teammates on this project</p>
+<p>
+  <strong>Description:</strong> 
+  <%= @project.description %>
+</p>
+
+<table> 
+  <tr>
+    <th>Teammates on this project</th>
+  <tr>
   <% @project.users.each do |user| %>
-    <li><%= user.name %> <%= '(project creator)' if UserProject.find_by(user_id: user.id, project_id: @project.id).project_creator == true %></li>
+  <tr>
+    <td><li><%= user.name %> <%= '(project creator)' if UserProject.find_by(user_id: user.id, project_id: @project.id).project_creator == true %></li></td>
   <% end %>
-  <p>Tasks To Do</p>
+  </tr>
+</table>
+
+<table>
+   <tr>
+    <th colspan="2">Tasks To Do</th>
+  </tr>
   <% @project.tasks.not_completed.each do |task| %>
-    <li><%= link_to task.content, project_task_path(@project, task) %>
-
-<%= form_for task, :url => task_complete_path(task), :method => 'get' do |f| %>
-    <%= f.hidden_field :id %>
-    <%= f.submit value='Completed' %>
-<% end %></li>
-
-<% end %><br>
+  <tr>
+    <td><li><%= link_to task.content, project_task_path(@project, task) %></li></td>
+    <td><%= form_for task, :url => task_complete_path(task), :method => 'get' do |f| %>
+      <%= f.hidden_field :id %>
+      <%= f.submit value='Completed' %>
+    <% end %></td>
+  <% end %><br>
+  </tr>
+</table><br>
 
 <% if @project.tasks.completed.empty? == false %>
-<p>Tasks Completed</p>
-<% @project.tasks.completed.each do |task| %>
-  <li><%= link_to task.content, project_task_path(@project, task) %></li>
-<% end %><br><br>
+  <table>  
+    <tr>
+      <th>Tasks Completed</th>
+    </tr>
+    <% @project.tasks.completed.each do |task| %>
+    <tr>
+      <td><li><%= link_to task.content, project_task_path(@project, task) %></li></td>
+    <% end %>
+    </tr>
+  </table><br><br>
 <% end %>
 
 <%= link_to "Add Another Task", new_project_task_path(@project) %> | 
