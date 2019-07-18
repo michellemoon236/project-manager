@@ -16,6 +16,8 @@
 
  @import url('https://fonts.googleapis.com/css?family=Hind+Siliguri&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Arvo&display=swap');
+
+@import url('https://fonts.googleapis.com/css?family=Athiti&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Literata&display=swap');
 
 @media screen {
@@ -33,7 +35,7 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    background-color: #8591ad;
+    background-color: #333;
     color: #333;
     font-family: 'Hind Siliguri', sans-serif;
     line-height: 18px;
