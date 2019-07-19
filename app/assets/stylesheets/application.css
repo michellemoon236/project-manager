@@ -106,6 +106,14 @@
     background-color: #f0f0f0;
   }
   
+  .notice_explanation {
+    width: 450px;
+    border: 2px solid #333;
+    padding: 7px 7px 0;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+  }
+
   table {
     margin-bottom: 15px;
   }
