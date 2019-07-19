@@ -18,6 +18,7 @@ class ProjectsController < ApplicationController
       user_project.assign_project_creator(current_user)
     end
     if @project.save
+      flash[:notice] = "*New project has been created*"
       redirect_to project_path(@project)
     else
       flash[:error] = @project.errors.full_messages
@@ -37,6 +38,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @project.update(project_params)
     if @project.save
+      flash[:notice] = "*Project has been updated*"
       redirect_to @project 
     else
       flash[:error] = @project.errors.full_messages
@@ -47,6 +49,7 @@ class ProjectsController < ApplicationController
   def destroy
     @project = Project.find(params[:id])
     @project.destroy
+    flash[:notice] = "*Project has been deleted*"
     redirect_to projects_path
   end
 

@@ -1,3 +1,11 @@
+<% if flash[:notice] %>
+<% binding.pry %>
+  <div class="error_explanation">
+    <%= flash[:notice] %>
+    <% flash.clear %>
+  </div>
+<% end %>
+
 <h2>Project: <%= @project.name %></h2>
 <p>
   <strong>Description:</strong> 

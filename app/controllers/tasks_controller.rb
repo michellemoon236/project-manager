@@ -8,6 +8,7 @@ class TasksController < ApplicationController
   def create 
     @task = Task.new(task_params)
     if @task.save
+      flash[:notice] = "*New task has been added*"
       redirect_to project_path(@task.project_id)
     else
       flash[:error] = @task.errors.full_messages
@@ -27,6 +28,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @task.update(task_params)
     if @task.save
+      flash[:notice] = "*Task has been updated*"
       redirect_to @task.project
     else
       flash[:error] = @task.errors.full_messages
@@ -37,12 +39,14 @@ class TasksController < ApplicationController
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
+    flash[:notice] = "*Task has been deleted*"
     redirect_to @task.project
   end
 
   def task_complete
     params[:task] ? @task = Task.find(params[:task][:id]) : @task = Task.find(params[:id])
     @task.status_change
+    flash[:notice] = "*Task status has been changed*"
     @task.save
     redirect_to project_path(id: @task.project_id)
   end
