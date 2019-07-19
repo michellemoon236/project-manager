@@ -4,9 +4,9 @@
 <table>
   <% @projects.each do |project| %>
   <tr>
-    <td><li><%= link_to project.name, project_path(project) %></li></td>
-  <% end %>
+    <td><li><%= link_to project.name, project_path(project) %></li></td> 
   </tr>
+  <% end %>
 </table><br><br>
 
 <%= link_to "Create a New Project", new_project_path %><br>
