@@ -5,4 +5,7 @@ class Task < ApplicationRecord
   scope :completed, -> { where(complete: true) }
   scope :not_completed, -> { where(complete: false) }
 
+  def status_change
+    self.complete == false ? self.complete = true : self.complete = false
+  end
 end

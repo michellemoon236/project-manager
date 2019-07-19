@@ -15,14 +15,6 @@ class TasksController < ApplicationController
     end
   end
 
-
-  def task_complete
-    params[:task] ? @task = Task.find(params[:task][:id]) : @task = Task.find(params[:id])
-    @task.complete == false ? @task.complete = true : @task.complete = false
-    @task.save
-    redirect_to project_path(id: @task.project_id)
-  end
-
   def show
     @task = Task.find(params[:id])
   end
@@ -46,6 +38,14 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @task.destroy
     redirect_to @task.project
+  end
+
+  def task_complete
+    params[:task] ? @task = Task.find(params[:task][:id]) : @task = Task.find(params[:id])
+    @task.status_change
+    # @task.complete == false ? @task.complete = true : @task.complete = false
+    @task.save
+    redirect_to project_path(id: @task.project_id)
   end
 
   private
