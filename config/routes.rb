@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
 
   resources :projects do 
-    resources :tasks, except: [:index, :create, :update, :destroy]
+    resources :tasks, only: [:new, :show, :edit]
   end
 
   resources :tasks, only: [:create, :update, :destroy]
