@@ -14,8 +14,9 @@ class ProjectsController < ApplicationController
 
   def create 
     @project = Project.new(project_params)
-    @project.user_projects.each do |user_project|
-      user_project.project_creator = true if user_project.user_id == current_user.id
+    binding.pry
+    @project.user_projects.each do |user_project| 
+      user_project.assign_project_creator(current_user)
     end
     if @project.save
       redirect_to project_path(@project)
