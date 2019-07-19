@@ -15,8 +15,8 @@
  */
 
 
-@import url('https://fonts.googleapis.com/css?family=Arvo&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Literata&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Hind&display=swap');
 
 @media screen {
   /* --- Reset Styles --- */
@@ -34,7 +34,7 @@
   body {
     background-color: #333;
     color: #333;
-    font-family: 'Hind Siliguri', sans-serif;
+    font-family: 'Hind', sans-serif;
     line-height: 18px;
   }
 
@@ -123,7 +123,9 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333
+    background-color: #ccc;
+    font-family: 'Literata', serif;
+    font-weight: bold;
   }
 
   nav li {
@@ -132,7 +134,7 @@
 
   nav li a {
     display: block;
-    color: white;
+    color: #333;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
