@@ -14,7 +14,6 @@ class ProjectsController < ApplicationController
 
   def create 
     @project = Project.new(project_params)
-    binding.pry
     @project.user_projects.each do |user_project| 
       user_project.assign_project_creator(current_user)
     end
