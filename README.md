@@ -9,6 +9,7 @@ You can clone from the git repository by typing the following command in your te
     $ git clone git@github.com:michellemoon236/project-manager.git
 
 To run, execute the following in the terminal:
+
     $ bundle install
     $ rails server
     
