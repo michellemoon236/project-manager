@@ -1,4 +1,4 @@
-# Dream Journal Sinatra Project
+# Project Align
 
 This Ruby on Rails based website is a project management application that allows for teams with many users to create and keep track of projects with associated tasks.
 
