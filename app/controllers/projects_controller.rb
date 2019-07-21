@@ -14,7 +14,8 @@ class ProjectsController < ApplicationController
 
   def create 
     @project = Project.new(project_params)
-    @project.user_projects.find { |user_project| user_project.user_id == current_user.id }.assign_project_creator if !@project.user_projects.empty?
+    binding.pry
+    @project.user_projects.find { |user_project| user_project.user_id == current_user.id }.assign_project_creator if !@project.user_projects.empty? && @project.users.include?(current_user)
     if @project.save
       flash[:notice] = "*New project has been created*"
       redirect_to project_path(@project)
